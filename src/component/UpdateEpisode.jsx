@@ -1,6 +1,6 @@
 import Modal from "react-modal";
 import { useState } from "react";
-import { FaPlus, FaRegEdit} from "react-icons/fa";
+import { FaRegEdit} from "react-icons/fa";
 
 function UpdateEpisodeModal({ isOpen, closeModal }) {
   const [episodeTitle, setEpisodeTitle] = useState("");
@@ -24,7 +24,7 @@ function UpdateEpisodeModal({ isOpen, closeModal }) {
       borderRadius: "5px",
       boxShadow: "0 2px 8px rgba(0, 0, 0, 0.25)",
       padding: "20px",
-      background: "#4285f4",
+      background: "#4682B4",
     },
     overlay: {
       background: "rgba(0, 0, 0, 0.5)",
@@ -38,10 +38,10 @@ function UpdateEpisodeModal({ isOpen, closeModal }) {
       contentLabel="Add Episode Modal"
       style={customStyles}
     >
-      <h2 style={{ color: "Chartreuse", marginBottom: "20px" }}><FaRegEdit/> Edit Episode</h2>
+      <h2 style={{ color: "	GreenYellow", marginBottom: "20px" }}><FaRegEdit/> Edit Episode</h2>
       <form onSubmit={handleSubmit}>
         <div className="form-group">
-          <label style={{ color: "white", fontSize:"14px", marginBottom: "5px" }} htmlFor="title">
+          <label style={{ color: "red", fontSize:"16px", marginBottom: "5px" }} htmlFor="title">
             Title
           </label>
           <input
@@ -55,7 +55,7 @@ function UpdateEpisodeModal({ isOpen, closeModal }) {
           />
         </div>
         <div className="form-group">
-          <label style={{ color: "white", fontSize: "14px", marginBottom: "5px" }} htmlFor="episodeLink">
+          <label style={{ color: "red", fontSize: "16px", marginBottom: "5px" }} htmlFor="episodeLink">
             Thumbnail Film
           </label>
           <input
@@ -71,7 +71,7 @@ function UpdateEpisodeModal({ isOpen, closeModal }) {
         </div>
 
         <div className="form-group">
-          <label style={{ color: "white", fontSize: "14px", marginBottom: "5px" }} htmlFor="episodeLink">
+          <label style={{ color: "red", fontSize: "16px", marginBottom: "5px" }} htmlFor="episodeLink">
             Link Film
           </label>
           <input
@@ -85,23 +85,8 @@ function UpdateEpisodeModal({ isOpen, closeModal }) {
           />
         </div>
 
-        <div className="form-group">
-          <label style={{ color: "white",fontSize: "14px", marginBottom: "5px" }} htmlFor="episodeLink">
-            Description
-          </label>
-            <textarea
-            type="text"
-            className="form-control"
-            placeholder="Deskription Film"
-            id="episodeLink"
-            value={episodeLink}
-            onChange={(e) => setEpisodeLink(e.target.value)}
-            style={{ borderRadius: "5px", padding: "8px" }}
-          />
-        </div>
-
         <button type="submit" className="btn btn-danger" style={{ marginTop: "20px" }}>
-          Smit
+          Submit
         </button>
       </form>
     </Modal>
