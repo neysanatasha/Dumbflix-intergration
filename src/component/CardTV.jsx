@@ -23,7 +23,7 @@ export default function Card() {
       <Container>
             <>
             <div className="mt-5">
-             <h3 className="fw-bold text-light">TV Show</h3>
+             <h3 className="fw-bold text-light">Tv Show</h3>
              </div>
              <div className="d-flex gap-4">
               <div className="mt-2 mb-5 rounded" style={{ width: "200px" }}>

@@ -1,18 +1,20 @@
 import React, { useEffect, useState } from "react";
 import { Button, Col, Form, Row } from "react-bootstrap";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useMutation, useQuery } from "react-query";
 import Attachment from "../assets/image/Attachment.png";
 
 import { API } from "../config/api";
 import Swal from "sweetalert2";
 
-function AdminAddMovies() {
+function UpdateMovies() {
   let Navigate = useNavigate();
-
+  const params = useParams ();
+  let id = params.id;
+  console.log(id)
   const [imageUrl, setImageUrl] = useState();
 
-  const title = " Admin Add Movies";
+  const title = " Update Movies";
   document.title = "Dumbflix | " + title;
 
   const [categoryId, setCategoryId] = useState([]);
@@ -73,7 +75,7 @@ function AdminAddMovies() {
       // Configuration Content-type
 
       // Insert data user to database
-      const response = await API.post("/film", formData, config);
+      const response = await API.patch(`/film/${id}`, formData, config);
       console.log("add movies success : ", response);
 
       Navigate("/");
@@ -102,7 +104,7 @@ function AdminAddMovies() {
       className="w-75 mt-5 pt-5 mx-auto"
       onSubmit={(e) => addButtonHandler.mutate(e)}
     >
-      <h4 className="text-light fw-semibold mb-4">Add Film</h4>
+      <h4 className="text-light fw-semibold mb-4">Edit Film</h4>
       <Row className="mb-3 formInputMovies">
         <Col xs={9}>
           <Form.Control
@@ -229,4 +231,4 @@ function AdminAddMovies() {
   );
 }
 
-export default AdminAddMovies;
+export default UpdateMovies;

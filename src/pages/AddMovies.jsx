@@ -3,7 +3,7 @@ import AddMovie from "../component/AddMovies";
 
 export default function AddMovies() {
   return (
-    <div className="AddMovie">
+    <div className="AddMovies">
       <Navbar />
       <AddMovie />
     </div>

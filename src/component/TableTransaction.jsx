@@ -11,7 +11,7 @@ export default function TableTransactions() {
   });
   return (
     <Container className="mt-5 pt-5">
-      <h2 className="mb-4 text-light fw-semibold">Income Transaction</h2>
+      <h2 className="mb-4 text-light fw-semibold" style={{ background: "linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>Income Transaction</h2>
       <Table
         striped
         bordered

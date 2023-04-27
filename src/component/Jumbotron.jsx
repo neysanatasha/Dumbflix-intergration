@@ -6,6 +6,7 @@ import { useQuery } from "react-query";
 import { API } from "../config/api";
 import { useContext, useState } from "react";
 import { UserContext } from "../context/userContext";
+import { FaPlay } from 'react-icons/fa';
 
 export default function Jumbotrons() {
   const [state] = useContext(UserContext);
@@ -22,13 +23,14 @@ export default function Jumbotrons() {
   if (films !== undefined) {
     //operator spread
     asceding = [...films];
-    //sort use methods descending for value id
+    //sort mengurutkan films berdasarkan id
     asceding.sort((a, b) => b.id - a.id);
   }
   return (
     <Container className="mt-4 pt-5 rounded">
     <Carousel>
     {asceding?.map((item) => {
+      console.log(item)
     return (
       <Carousel.Item>
         <img key={item.id} className="d-block w-100 rounded" src={`http://localhost:5000/uploads/${item.thumbnailfilm}`} alt="First slide"/>
@@ -38,10 +40,10 @@ export default function Jumbotrons() {
           <p>{item.description}</p>
           <div className="d-flex gap-3 justify-content-center">
             <p>{item.year}</p>
-            <p className="border border-2 rounded pe-3 ps-3 shadow-lg">TV Show</p>
+            <p className="border border-2 rounded pe-3 ps-3 shadow-lg">{item.category.name}</p>
           </div>
           <NavLink to={`/detail/${item.id}`} className="text-decoration-none">
-            <Button style={{ backgroundColor: "#E50914", border: "none", paddingLeft: "30px", paddingRight: "30px", paddingTop: "10px", paddingBottom: "10px" }}>Watch Now!</Button>
+            <Button style={{ backgroundColor: "#E50914", border: "none", paddingLeft: "30px", paddingRight: "30px", paddingTop: "10px", paddingBottom: "10px" }}><FaPlay/> Watch Now! </Button>
           </NavLink>
           </div>
         </Carousel.Caption> 

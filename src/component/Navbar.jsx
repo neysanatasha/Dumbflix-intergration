@@ -9,7 +9,7 @@ import {
   Stack,
 } from "react-bootstrap";
 import ModalLogin from "./ModalLogin";
-import UserProfile from "../assets/image/BlankProfile.jpg";
+import Profile from "../assets/image/Profile.png";
 import Logo from "../assets/image/LogoDumbflix.png";
 import Clip from "../assets/image/Clip.png";
 import Transaction from "../assets/image/Transaction.png";
@@ -37,12 +37,12 @@ export default function Header() {
   });
 
   useEffect(() => {
-    // Redirect Auth but just when isLoading is false
+    
     if (!isLoading) {
-      console.log("apa")
+      
       if (state.isLogin === false) {
-        console.log("s")
-        // navigate("/");
+        
+        
       }
     }
   }, [isLoading]);
@@ -51,7 +51,7 @@ export default function Header() {
     if (localStorage.token) {
       setAuthToken(localStorage.token);
       checkUser();
-      console.log ("User")
+      
     } else {
       setIsLoading(false);
     }
@@ -163,6 +163,18 @@ export default function Header() {
                         Add Film
                       </span>
                     </NavDropdown.Item>
+                    
+                    <NavDropdown.Item href="/listfilms">
+                      <img
+                        src={Clip}
+                        width="20px"
+                        height="20px"
+                        alt="Clip"
+                      ></img>
+                      <span className="ms-2 text-light fw-semibold">
+                        List Film
+                      </span>
+                    </NavDropdown.Item>
 
                     <NavDropdown.Divider />
                     <NavDropdown.Item href="/tabletransaction">
@@ -221,8 +233,8 @@ export default function Header() {
                     align="end"
                     title={
                       <img
-                        src={profile?.photo ? `http://localhost:5000/uploads/${profile.photo}` : UserProfile}
-                        className="rounded-circle"
+                        src={profile?.photo ? `http://localhost:5000/uploads/${profile.photo}` : Profile}
+                        className="rounded-circle "
                         style={{ objectFit: "cover" }}
                         width="40px"
                         height="40px"

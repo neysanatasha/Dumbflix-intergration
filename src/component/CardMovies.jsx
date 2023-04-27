@@ -6,16 +6,14 @@ import Card2 from "../assets/image/Cardjoker.png";
 
 export default function Card() {
   // Fetching product data from database
-  let { data: products } = useQuery("productsCache", async () => {
+  let { data: films } = useQuery("filmsCache", async () => {
     const response = await API.get("/films");
     return response.data.data;
   });
 
   let asceding = [];
-  if (products !== undefined) {
-    //operator spread
-    asceding = [...products];
-    //sort use methods descending for value id
+  if (films !== undefined) {
+    asceding = [...films];
     asceding.sort((a, b) => b.id - a.id);
   }
   return (
